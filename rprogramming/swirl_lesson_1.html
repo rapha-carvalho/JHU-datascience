@@ -203,53 +203,89 @@ $(document).ready(function () {
 <li>To assign the result of 5 + 7 to a new variable called x, you type x &lt;- 5 + 7. This can be read as ‘x gets 5 plus 7’. Give it a try now.</li>
 </ul>
 <pre class="r"><code>x &lt;- 5 + 7</code></pre>
-<p>To view the contents of the variable x, just type x and press Enter. Try it now.</p>
+<ul>
+<li>To view the contents of the variable x, just type x and press Enter. Try it now.</li>
+</ul>
 <pre class="r"><code>x</code></pre>
 <pre><code>## [1] 12</code></pre>
-<p>Now, store the result of x - 3 in a new variable called y.</p>
+<ul>
+<li>Now, store the result of x - 3 in a new variable called y.</li>
+</ul>
 <pre class="r"><code>y &lt;- x - 3</code></pre>
-<p>What is the value of y? Type y to find out.</p>
+<ul>
+<li>What is the value of y? Type y to find out.</li>
+</ul>
 <pre class="r"><code>y</code></pre>
 <pre><code>## [1] 9</code></pre>
-<p>The easiest way to create a vector is with the c() function, which stands for ‘concatenate’ or ‘combine’. To create a vector containing the numbers 1.1, 9, and 3.14, type c(1.1, 9, 3.14). Try it now and store the result in a variable called z</p>
+<ul>
+<li>The easiest way to create a vector is with the c() function, which stands for ‘concatenate’ or ‘combine’. To create a vector containing the numbers 1.1, 9, and 3.14, type c(1.1, 9, 3.14). Try it now and store the result in a variable called z</li>
+</ul>
 <pre class="r"><code>z &lt;- c(1.1, 9, 3.14)</code></pre>
-<p>Anytime you have questions about a particular function, you can access R’s built-in help files via the <code>?</code> command. For example, if you want more information on the c() function, type ?c without the parentheses that normally follow a function name. Give it a try.</p>
+<ul>
+<li>Anytime you have questions about a particular function, you can access R’s built-in help files via the <code>?</code> command. For example, if you want more information on the c() function, type ?c without the parentheses that normally follow a function name. Give it a try.</li>
+</ul>
 <pre class="r"><code>?c</code></pre>
-<p>Type z to view its contents. Notice that there are no commas separating the values in the output.</p>
+<ul>
+<li>Type z to view its contents. Notice that there are no commas separating the values in the output.</li>
+</ul>
 <pre class="r"><code>z</code></pre>
 <pre><code>## [1] 1.10 9.00 3.14</code></pre>
-<p>You can combine vectors to make a new vector. Create a new vector that contains z, 555, then z again in that order. Don’t assign this vector to a new variable, so that we can just see the result immediately.</p>
+<ul>
+<li>You can combine vectors to make a new vector. Create a new vector that contains z, 555, then z again in that order. Don’t assign this vector to a new variable, so that we can just see the result immediately.</li>
+</ul>
 <pre class="r"><code>c(z, 555, z)</code></pre>
 <pre><code>## [1]   1.10   9.00   3.14 555.00   1.10   9.00   3.14</code></pre>
-<p>Numeric vectors can be used in arithmetic expressions. Type the following to see what happens: z * 2 + 100.</p>
+<ul>
+<li>Numeric vectors can be used in arithmetic expressions. Type the following to see what happens: z * 2 + 100.</li>
+</ul>
 <pre class="r"><code>z * 2 + 100</code></pre>
 <pre><code>## [1] 102.20 118.00 106.28</code></pre>
-<p>Take the square root of z - 1 and assign it to a new variable called my_sqrt.</p>
+<ul>
+<li>Take the square root of z - 1 and assign it to a new variable called my_sqrt.</li>
+</ul>
 <pre class="r"><code>my_sqrt &lt;- sqrt(z-1)</code></pre>
-<p>Before we view the contents of the my_sqrt variable, what do you think it contains?</p>
+<ul>
+<li>Before we view the contents of the my_sqrt variable, what do you think it contains?</li>
+</ul>
 <p><em>2: a vector of length 3</em></p>
-<p>Print the contents of my_sqrt.</p>
+<ul>
+<li>Print the contents of my_sqrt.</li>
+</ul>
 <pre class="r"><code>my_sqrt</code></pre>
 <pre><code>## [1] 0.3162278 2.8284271 1.4628739</code></pre>
-<p>Now, create a new variable called my_div that gets the value of z divided by my_sqrt.</p>
+<ul>
+<li>Now, create a new variable called my_div that gets the value of z divided by my_sqrt.</li>
+</ul>
 <pre class="r"><code>my_div &lt;- z/my_sqrt</code></pre>
-<p>Which statement do you think is true?</p>
+<ul>
+<li>Which statement do you think is true?</li>
+</ul>
 <p><em>3: The first element of my_div is equal to the first element of z divided by the first element of my_sqrt, and so on…</em></p>
-<p>Go ahead and print the contents of my_div.</p>
+<ul>
+<li>Go ahead and print the contents of my_div.</li>
+</ul>
 <pre class="r"><code>my_div</code></pre>
 <pre><code>## [1] 3.478505 3.181981 2.146460</code></pre>
-<p>To see another example of how this vector ‘recycling’ works, try adding c(1, 2, 3, 4) and c(0, 10). Don’t worry about saving the result in a new variable.</p>
+<ul>
+<li>To see another example of how this vector ‘recycling’ works, try adding c(1, 2, 3, 4) and c(0, 10). Don’t worry about saving the result in a new variable.</li>
+</ul>
 <pre class="r"><code>c(1, 2, 3, 4) + c(0, 10)</code></pre>
 <pre><code>## [1]  1 12  3 14</code></pre>
-<p>Try c(1, 2, 3, 4) + c(0, 10, 100) for an example.</p>
+<ul>
+<li>Try c(1, 2, 3, 4) + c(0, 10, 100) for an example.</li>
+</ul>
 <pre class="r"><code> c(1, 2, 3, 4) + c(0, 10, 100)</code></pre>
 <pre><code>## Warning in c(1, 2, 3, 4) + c(0, 10, 100): comprimento do objeto maior não é
 ## múltiplo do comprimento do objeto menor</code></pre>
 <pre><code>## [1]   1  12 103   4</code></pre>
-<p>In many programming environments, the up arrow will cycle through previous commands. Try hitting the up arrow on your keyboard until you get to this command (z * 2 + 100), then change 100 to 1000 and hit Enter. If the up arrow doesn’t work for you, just type the corrected command.</p>
+<ul>
+<li>In many programming environments, the up arrow will cycle through previous commands. Try hitting the up arrow on your keyboard until you get to this command (z * 2 + 100), then change 100 to 1000 and hit Enter. If the up arrow doesn’t work for you, just type the corrected command.</li>
+</ul>
 <pre class="r"><code>z * 2 + 1000</code></pre>
 <pre><code>## [1] 1002.20 1018.00 1006.28</code></pre>
-<p>You can type the first two letters of the variable name, then hit the Tab key (possibly more than once). Most programming environments will provide a list of variables that you’ve created that begin with ‘my’. This is called auto-completion and can be quite handy when you have many variables in your workspace. Give it a try. (If auto-completion doesn’t work for you, just type my_div and press Enter.)</p>
+<ul>
+<li>You can type the first two letters of the variable name, then hit the Tab key (possibly more than once). Most programming environments will provide a list of variables that you’ve created that begin with ‘my’. This is called auto-completion and can be quite handy when you have many variables in your workspace. Give it a try. (If auto-completion doesn’t work for you, just type my_div and press Enter.)</li>
+</ul>
 <pre class="r"><code>my_div</code></pre>
 <pre><code>## [1] 3.478505 3.181981 2.146460</code></pre>
 </div>
