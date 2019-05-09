@@ -6,6 +6,10 @@ output: html_document
 ---
 # Basic Building blocks 
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 * In its simplest form, R can be used as an interactive calculator. Type 5 +
 7 and press Enter.
 
