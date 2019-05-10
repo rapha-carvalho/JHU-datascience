@@ -148,3 +148,10 @@ directory at the start of these questions.)
 setwd(old.dir)
 ```
 
+
+Removing everything: 
+
+```{r 21, echo=TRUE, eval=TRUE}
+file.remove('mytest2.R', 'mytest3.R')
+file.remove("./testdir", "./testdir2")
+```
