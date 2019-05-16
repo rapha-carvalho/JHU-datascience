@@ -1,0 +1,78 @@
+---
+title: "Vectors"
+author: "Raphael Carvalho"
+date: "15/05/2019"
+output: html_document
+---
+
+# Vectors
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+First, create a numeric vector num_vect that contains the values 0.5, 55, -10, and 6.
+
+```{r 1, echo=TRUE, eval=TRUE}
+num_vect <- c(0.5, 55, -10, 6)
+```
+
+Now, create a variable called tf that gets the result of num_vect < 1, which is read
+as 'num_vect is less than 1'.
+
+```{r 2, echo=TRUE, eval=TRUE}
+tf <- num_vect < 1
+```
+
+What do you think tf will look like?
+
+```{r 3, echo=TRUE, eval=TRUE}
+print("a vector of 4 logical values")
+```
+
+Let's try another. Type num_vect >= 6 without assigning the result to a new variable.
+
+```{r 4, echo=TRUE, eval=TRUE}
+num_vect >= 6
+```
+
+
+(3 > 5) & (4 == 4)
+
+```{r 5, echo=TRUE, eval=TRUE}
+print(1: FALSE)
+```
+
+(TRUE == TRUE) | (TRUE == FALSE)
+
+```{r 6, echo=TRUE, eval=TRUE}
+print(2: TRUE)
+```
+
+((111 >= 111) | !(TRUE)) & ((4 + 1) == 5)
+
+```{r 7, echo=TRUE, eval=TRUE}
+print(2: TRUE)
+```
+
+Create a character vector that contains the following words: "My", "name", "is". Remember to enclose each word in its own set of double quotes, so that R knows they
+are character strings. Store the vector in a variable called my_char.
+
+```{r 8, echo=TRUE, eval=TRUE}
+my_char <- c("My", "name", "is")
+```
+
+Type paste(my_char, collapse = " ") now. Make sure there's a space between the double
+quotes in the `collapse` argument. You'll see why in a second.
+
+```{r 9, echo=TRUE, eval=TRUE}
+paste(my_char, collapse = " ") 
+```
+
+To add (or 'concatenate') your name to the end of my_char, use the c() function like
+this: c(my_char, "your_name_here"). Place your name in double quotes where I've put
+"your_name_here". Try it now, storing the result in a new variable called my_name.
+
+```{r 10, echo=TRUE, eval=TRUE}
+my_name <- c(my_char, "Raphael")
+```
