@@ -76,3 +76,27 @@ this: c(my_char, "your_name_here"). Place your name in double quotes where I've 
 ```{r 10, echo=TRUE, eval=TRUE}
 my_name <- c(my_char, "Raphael")
 ```
+
+In the simplest case, we can join two character vectors that are each of length 1
+(i.e. join two words). Try paste("Hello", "world!", sep = " "), where the `sep`
+argument tells R that we want to separate the joined elements with a single space.
+
+```{r 11, echo=TRUE, eval=TRUE}
+paste("Hello", "world!", sep = " ")
+```
+
+For a slightly more complicated example, we can join two vectors, each of length 3.
+Use paste() to join the integer vector 1:3 with the character vector c("X", "Y", "Z").
+This time, use sep = "" to leave no space between the joined elements.
+
+```{r 12, echo=TRUE, eval=TRUE}
+ paste(c(1:3), c("X", "Y", "Z"), sep = "")
+```
+
+Vector recycling! Try paste(LETTERS, 1:4, sep = "-"), where LETTERS is a predefined
+variable in R containing a character vector of all 26 letters in the English alphabet.
+
+```{r 13, echo=TRUE, eval=TRUE}
+ paste(LETTERS, 1:4, sep = "-")
+```
+
