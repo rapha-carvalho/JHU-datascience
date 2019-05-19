@@ -2,7 +2,7 @@
 title: "Workspace and Files"
 author: "Raphael Carvalho"
 date: "09/05/2019"
-output: html_document
+output: pdf_document
 ---
 
 # Workspace and Files

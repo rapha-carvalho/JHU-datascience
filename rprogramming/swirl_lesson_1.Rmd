@@ -2,7 +2,7 @@
 title: 'swirl Lesson 1: Basic Building Blocks'
 author: "Raphael Carvalho"
 date: "08/05/2019"
-output: html_document
+output: pdf_document
 ---
 # Basic Building blocks 
 
