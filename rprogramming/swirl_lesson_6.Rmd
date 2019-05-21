@@ -1,7 +1,7 @@
 ---
 title: "Subsetting Vectors"
 author: "Raphael Carvalho"
-date: "09/05/2019"
+date: "20/05/2019"
 output: pdf_document
 ---
 
@@ -13,6 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The way you tell R that you want to select some particular elements (i.e. a 'subset') from a vector is by placing an
 'index vector' in square brackets immediately following the name of the vector. For a simple example, try x[1:10] to view the first ten elements of x.
+
+```{r 0, echo=FALSE, eval=TRUE}
+x <- c(NA,NA,1.042252547,NA,NA,-0.092668232,-0.500333319,-1.404759367,NA,0.008206288,-0.330695810,-1.244128325,NA,NA,NA,-0.402158280,NA,NA,-1.494512391,-0.229679407,NA,0.278735977,-1.528015545,NA,NA,NA,-1.520262829,NA,1.610933847,0.369899514,NA,0.043526480,NA,NA,-0.054113564,-1.538931102,NA,NA,0.428470483, 0.846031063) 
+```
 
 ```{r 1, echo=TRUE, eval=TRUE}
 x[1:10]
@@ -132,6 +136,6 @@ print("3: vect['bar']")
 
 Likewise, we can specify a vector of names with vect[c("foo", "bar")]. Try it out.
 
-```{r 17, echo=TRUE, eval=TRUE}
+```{r 18, echo=TRUE, eval=TRUE}
 vect[c("foo", "bar")]
 ```

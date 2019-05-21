@@ -1,0 +1,19 @@
+---
+title: "Subsetting Vectors"
+author: "Raphael Carvalho"
+date: "20/05/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Subsetting Vectors
+
+The way you tell R that you want to select some particular elements (i.e. a 'subset') from a vector is by placing an
+'index vector' in square brackets immediately following the name of the vector. For a simple example, try x[1:10] to view the first ten elements of x.
+
+```{r 1, echo=TRUE, eval=TRUE}
+x[1:10]
+```
