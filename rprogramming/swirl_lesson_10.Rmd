@@ -1,5 +1,5 @@
 ---
-title: "Functions"
+title: "lapply and sapply"
 author: "Raphael Carvalho"
 date: "01/06/2019"
 output: pdf_document

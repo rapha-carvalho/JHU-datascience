@@ -1,0 +1,108 @@
+---
+title: "Simulation13"
+author: "Raphael Carvalho"
+date: "04/06/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+```
+
+# Simulation
+
+
+Let's simulate rolling four six-sided dice: sample(1_6, 4, replace = TRUE)
+
+```{r 1, echo=TRUE, eval=TRUE}
+sample(1:6, 4, replace = TRUE)
+```
+
+Now sample 10 numbers between 1 and 20, WITHOUT replacement. To sample without replacement, simply leave off the 'replace' argument.
+
+```{r 2, echo=TRUE, eval=TRUE}
+sample(1:20, 10)
+```
+
+The sample() function can also be used to permute, or rearrange, the elements of a vector. For example, try sample(LETTERS) to permute all 26 letters of the English alphabet.
+
+```{r 3, echo=TRUE, eval=TRUE}
+sample(LETTERS)
+```
+
+Now, suppose we want to simulate 100 flips of an unfair two-sided coin. This particular coin has a 0.3 probability of landing 'tails' and a 0.7 probability of landing 'heads'. Let the value 0 represent tails and the value 1 represent heads. Use sample() to draw a sample of size 100 from the vector c(0,1), with replacement. Since the coin is unfair, we must attach specific probabilities to the values 0 (tails) and 1 (heads) with a fourth argument, prob = c(0.3, 0.7). Assign the result to a new variable called flips.
+
+```{r 4, echo=TRUE, eval=TRUE}
+flips <- sample(c(0, 1), 100, prob = c(0.3, 0.7), replace = TRUE)
+flips
+```
+
+ Since we set the probability of landing heads on any given flip to be 0.7, we'd expect approximately 70 of our coin flips to have the value 1. Count the actual number of 1s contained in flips using the sum() function.
+
+```{r 5, echo=TRUE, eval=TRUE}
+sum(flips)
+```
+
+A coin flip is a binary outcome (0 or 1) and we are performing 100 independent trials (coin flips), so we can use rbinom() to simulate a binomial random variable.
+
+Each probability distribution in R has an r*** function (for "random"), a d*** function (for "density"), a p*** (for "probability"), and q*** (for "quantile").
+
+A binomial random variable represents the number of 'successes' (heads) in a given number of independent 'trials' (coin flips). Therefore, we can generate a single random variable that represents the number of heads in 100 flips of our unfair coin using rbinom(1, size = 100, prob = 0.7). Note that you only specify the probability of 'success' (heads) and NOT the probability of 'failure' (tails). Try it now.
+
+
+```{r 6, echo=TRUE, eval=TRUE}
+rbinom(1, size = 100, prob = 0.7)
+```
+
+Equivalently, if we want to see all of the 0s and 1s, we can request 100 observations, each of size 1, with success probability of 0.7. Give it a try, assigning the result to a new variable called flips2.
+
+```{r 7, echo=TRUE, eval=TRUE}
+flips2 <- rbinom(100, size = 1, prob = 0.7)
+flips2
+```
+
+Now use sum() to count the number of 1s (heads) in flips2. It should be close to 70!
+
+```{r 8, echo=TRUE, eval=TRUE}
+sum(flips2)
+```
+
+The standard normal distribution has mean 0 and standard deviation 1. As you can see under the 'Usage' section in the documentation, the default values for the 'mean' and 'sd' arguments to rnorm() are 0 and 1, respectively. Thus, rnorm(10) will generate 10 random numbers from a standard normal distribution. Give it a try.
+
+```{r 9, echo=TRUE, eval=TRUE}
+rnorm(10)
+```
+
+Now do the same, except with a mean of 100 and a standard deviation of 25.
+
+```{r 10, echo=TRUE, eval=TRUE}
+rnorm(10, 100, 25)
+```
+
+Finally, what if we want to simulate 100 *groups* of random numbers, each containing 5 values generated from a Poisson distribution with mean 10? Let's start with one group of 5 numbers, then I'll show you how to repeat the operation 100 times in a convenient and compact way.
+
+Generate 5 random values from a Poisson distribution with mean 10. 
+
+```{r 11, echo=TRUE, eval=TRUE}
+rpois(5, lambda = 10)
+```
+
+Now use replicate(100, rpois(5, 10)) to perform this operation 100 times. Store the result in a new variable called my_pois.
+
+```{r 12, echo=TRUE, eval=TRUE}
+my_pois <- replicate(100, rpois(5, 10))
+my_pois
+```
+
+replicate() created a matrix, each column of which contains 5 random numbers generated from a Poisson distribution with mean 10. Now we can find the mean of each column in my_pois using the colMeans() function. Store the result in a variable called cm.
+
+```{r 13, echo=TRUE, eval=TRUE}
+cm <- colMeans(my_pois)
+hist(cm)
+```
+
+
+```{r 14, echo=TRUE, eval=TRUE}
+my_pois <- replicate(100, rpois(5, 10))
+my_pois
+```

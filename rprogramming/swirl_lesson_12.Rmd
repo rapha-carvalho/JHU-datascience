@@ -1,0 +1,105 @@
+---
+title: "Looking at Data"
+author: "Raphael Carvalho"
+date: "02/06/2019"
+output: pdf_document
+---
+
+Let's begin by checking the class of the plants variable with class(plants). This will give us a clue as to the overall structure of the data.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+
+# For compatibility with 2.2.21
+.get_course_path <- function(){
+  tryCatch(swirl:::swirl_courses_dir(),
+           error = function(c) {file.path(find.package("swirl"),"Courses")}
+  )
+}
+
+# Path to data
+.datapath <- file.path(.get_course_path(),
+                      'R_Programming', 'Looking_at_Data',
+                      'plant-data.txt')
+# Read in data
+plants <- read.csv(.datapath, strip.white=TRUE, na.strings="")
+```
+
+# Looking at Data
+
+
+Let's begin by checking the class of the plants variable with class(plants). This will give us a clue as to the overall structure of the data.
+
+```{r 1, echo=TRUE, eval=TRUE}
+class(plants)
+```
+
+Since the dataset is stored in a data frame, we know it is rectangular. In other words, it has two dimensions (rows and columns) and fits neatly into a table or spreadsheet. Use dim(plants) to see exactly how many rows and columns we're dealing with.
+
+```{r 2, echo=TRUE, eval=TRUE}
+dim(plants)
+```
+
+
+You can also use nrow(plants) to see only the number of rows. Try it out.
+
+```{r 3, echo=TRUE, eval=TRUE}
+nrow(plants)
+```
+
+... And ncol(plants) to see only the number of columns. 
+
+```{r 4, echo=TRUE, eval=TRUE}
+ncol(plants)
+```
+
+If you are curious as to how much space the dataset is occupying in memory, you can use object.size(plants).
+
+```{r 5, echo=TRUE, eval=TRUE}
+object.size(plants)
+```
+
+Now that we have a sense of the shape and size of the dataset, let's get a feel for what's inside. names(plants) will return a character vector of column (i.e. variable) names. Give it a shot.
+
+```{r 6, echo=TRUE, eval=TRUE}
+names(plants)
+```
+
+We've applied fairly descriptive variable names to this dataset, but that won't always be the case. A logical next step is to peek at the actual data. However, our dataset contains over 5000 observations (rows), so it's impractical to view the whole thing all at once.
+
+The head() function allows you to preview the top of the dataset. Give it a try with only one argument.
+
+```{r 7, echo=TRUE, eval=TRUE}
+head(plants)
+```
+
+By default, head() shows you the first six rows of the data. You can alter this behavior by passing as a second argument the number of rows you'd like to view. Use head() to preview the first 10 rows of plants.
+
+
+```{r 8, echo=TRUE, eval=TRUE}
+head(plants, 10)
+```
+
+The same applies for using tail() to preview the end of the dataset. Use tail() to view the last 15 rows.
+
+```{r 9, echo=TRUE, eval=TRUE}
+tail(plants, 15)
+```
+
+After previewing the top and bottom of the data, you probably noticed lots of NAs, which are R's placeholders for missing values. Use summary(plants) to get a better feel for how each variable is distributed and how much of the dataset is missing.
+
+```{r 10, echo=TRUE, eval=TRUE}
+summary(plants)
+```
+
+You can see that R truncated the summary for Active_Growth_Period by including a catch-all category called 'Other'. Since it is a categorical/factor variable, we can see how many times each value actually occurs in the data with table(plants$Active_Growth_Period).
+
+```{r 11, echo=TRUE, eval=TRUE}
+table(plants$Active_Growth_Period)
+```
+
+Perhaps the most useful and concise function for understanding the *str*ucture of your data is str(). Give it a try now.
+
+```{r 12, echo=TRUE, eval=TRUE}
+str(plants)
+```
