@@ -1,0 +1,89 @@
+---
+title: "Base Graphics"
+author: "Raphael Carvalho"
+date: "06/06/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+data(cars)
+data(mtcars)
+```
+
+# Base Graphics
+
+Run the plot() command on the cars data frame.
+
+```{r 1, echo=TRUE, eval=TRUE}
+plot(cars)
+```
+
+As always, R tries very hard to give you something sensible given the information that you have provided to it. First, R notes that the data frame you have given it has just two columns, so it assumes that you want to plot one column versus the other.
+
+
+Use plot() command to show speed on the x-axis and dist on the y-axis from the cars data frame. Use the form of the plot command in which vectors are explicitly passed in as arguments for x and y.
+
+```{r 2, echo=TRUE, eval=TRUE}
+plot(x = cars$speed, y = cars$dist)
+```
+
+Recreate the plot with the label of the x-axis set to "Speed".
+
+```{r 3, echo=TRUE, eval=TRUE}
+plot(x = cars$speed, y = cars$dist, xlab = "Speed")
+```
+
+Recreate the plot with the label of the y-axis set to "Stopping Distance".
+
+```{r 4, echo=TRUE, eval=TRUE}
+plot(x = cars$speed, y = cars$dist, ylab = "Stopping Distance")
+```
+
+Recreate the plot with "Speed" and "Stopping Distance" as axis labels.
+ 
+```{r 5, echo=TRUE, eval=TRUE}
+plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance")
+```
+
+Plot cars with a main title of "My Plot". Note that the argument for the main title is "main" not "title".
+
+```{r 6, echo=TRUE, eval=TRUE}
+plot(cars, main = "My Plot")
+```
+
+Plot cars with a sub title of "My Plot Subtitle".
+
+```{r 7, echo=TRUE, eval=TRUE}
+plot(cars, sub = "My Plot Subtitle")
+```
+
+Plot cars so that the plotted points are colored red. (Use col = 2 to achieve this effect.)
+
+```{r 8, echo=TRUE, eval=TRUE}
+plot(cars, col = 2)
+```
+
+Plot cars while limiting the x-axis to 10 through 15.  (Use xlim = c(10, 15) to achieve this effect.)
+
+```{r 9, echo=TRUE, eval=TRUE}
+plot(cars, xlim = c(10, 15))
+```
+
+Plot cars using triangles.  (Use pch = 2 to achieve this effect.)
+
+```{r 10, echo=TRUE, eval=TRUE}
+plot(cars, pch = 2)
+```
+
+Use boxplot() with formula = mpg ~ cyl and data = mtcars to create a box plot.
+
+```{r 11, echo=TRUE, eval=TRUE}
+boxplot(mpg ~ cyl, data = mtcars)
+```
+
+Use hist() with the vector mtcars$mpg to create a histogram.
+
+```{r 12, echo=TRUE, eval=TRUE}
+hist(mtcars$mpg)
+```
