@@ -1,0 +1,377 @@
+---
+title: "Week 1 - Quiz 1"
+author: "Raphael Carvalho"
+date: "09/05/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. R was developed by statisticians working at 
+
+[ ] The University of New South Wales
+
+[ ] Bell Labs
+
+[ x ] The University of Auckland
+
+[ ] Harvard University 
+
+## 2. The definition of free software consists of four freedoms (freedoms 0 through 3). Which of the following is NOT one of the freedoms that are part of the definition? Select all that apply. 
+
+[ ] The freedom to redistribute copies so you can help your neighbor.
+
+[ ] The freedom to improve the program, and release your improvements to the public, so that the whole community benefits.
+
+[ x ] The freedom to sell the software for any price.
+
+[ ] The freedom to run the program, for any purpose.
+
+[ ] The freedom to study how the program works, and adapt it to your needs.
+
+[ ] The freedom to prevent users from using the software for undesirable purposes.
+
+[ ] The freedom to restrict access to the source code for the software.
+
+
+## 3. In R the following are all atomig data types EXCEPT: (Select all that apply)
+
+[ ] table
+
+[ ] complex
+
+[ x ] matrix
+
+[ ] numeric
+
+[ ] character
+
+[ ] list
+
+[ ] array
+
+[ ] data frame
+
+[ ] logical
+
+[ ] integer
+
+## 4. If I execute the expression x <- 4 in R, what is the class of the object 'x' as determined by the 'class()' function?
+
+```{r 1, echo=TRUE, eval=TRUE}
+x <- 4
+class(x)
+```
+
+
+[ ] real
+
+[ ] integer
+
+[ x ] numeric
+
+[ ] complex
+
+[ ] vector
+
+[ ] list
+
+[ ] matrix
+
+## 5. What is the class of the object defined by the expression x <- c(4, "a", TRUE)?
+
+```{r 2, echo=TRUE, eval=TRUE}
+x <- c(4, "a", TRUE)
+class(x)
+```
+
+[ ] integer
+
+[ ] numeric
+
+[ x ] character
+
+[ ] mixed
+
+[ ] logical
+
+
+## 6. If I have two vectors x<- c(1, 3, 5) and y <- c(3, 2, 10), what is produced by the expression cbind(x, y)?
+
+```{r 3, echo=TRUE, eval=TRUE}
+x <- c(1, 3, 5); y <- c(3, 2, 10)
+cbind(x, y)
+```
+
+[ ] a vector of length 3
+
+[ ] a 2 by 2 matrix
+
+[ x ] a matrix with 2 columns and 3 rows
+
+[ ] a 2 by 3 matrix
+
+[ ] a vector of length 2
+
+[ ] a 3 by 3 matrix
+
+## 7. A key property of vectors in R is that 
+
+[ ] the length of a vector must be less than 32,768
+
+[ x ] elements of a vector all must be of the same class
+
+[ ] a vector cannot have have attributes like dimensions
+
+[ ] elements of a vector can only be character or numeric
+
+[ ] elements of a vector can be of different classes
+
+## 8. Suppose I have a list defined as x <- list(2, "a", "b", TRUE). What does x[[1]] give me? Select all that apply. 
+
+```{r 4, echo=TRUE, eval=TRUE}
+x <- list(2, "a", "b", TRUE)
+x[[1]]
+```
+
+[ ] a character vector containing the element "2".
+
+[ ] a numeric vector of length 1.
+
+[ ] a list containing the number 2.
+
+[ ] a list containing the letter "a".
+
+[ x ] a numeric vector containing the element 2.
+
+## 9. Suppose I have a vector x <- 1:4 and a vector y <- 2. What is produced by the expression x + y?
+
+```{r 5, echo=TRUE, eval=TRUE}
+x <- 1:4; y <- 2
+x + y
+```
+
+[ x ] a numeric vector with elements 3, 4, 5, 6.
+
+[ ] a numeric vector with elements 1, 2, 3, 6.
+
+[ ] an integer vector with elements 3, 2, 3, 6.
+
+[ ] a numeric vector with elements 3, 2, 3, 4.
+
+[ ] a numeric vector with elements 3, 2, 3, 6.
+
+[ ] an integer vector with elements 3, 2, 3, 4.
+
+## 10. Suppose I have a vector x <- c(3, 5, 1, 10, 12, 6) and I want to set all elements of this vector that are less than 6 to be equal to zero. What R core achieves this? Select all that apply.
+
+```{r 6, echo=TRUE, eval=TRUE}
+# x[x >= 6] <- 0
+x <- c(3, 5, 1, 10, 12, 6)
+x[x >= 6] <- 0
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x > 6] <- 0
+x <- c(3, 5, 1, 10, 12, 6)
+x[x > 6] <- 0
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x != 6] <- 0
+x <- c(3, 5, 1, 10, 12, 6)
+x[x != 6] <- 0
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x %in% 1:5] <- 0
+x <- c(3, 5, 1, 10, 12, 6)
+x[x %in% 1:5] <- 0
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x <= 5] <- 0
+x <- c(3, 5, 1, 10, 12, 6)
+x[x <= 5] <- 0
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x < 6] <- 0
+x <- c(3, 5, 1, 10, 12, 6)
+x[x < 6] <- 0
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x == 6] <- 0
+x <- c(3, 5, 1, 10, 12, 6)
+x[x == 6] <- 0
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x == 0] <- 6
+x <- c(3, 5, 1, 10, 12, 6)
+x[x == 0] <- 6
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x < 6] == 0
+x <- c(3, 5, 1, 10, 12, 6)
+x[x < 6] == 0
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x > 0] <- 6
+x <- c(3, 5, 1, 10, 12, 6)
+x[x > 0] <- 6
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+
+# x[x == 0] < 6
+x <- c(3, 5, 1, 10, 12, 6)
+x[x == 0] < 6
+ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
+```
+
+[ x ] x[x >= 6] <- 0
+
+[ x ] x[x > 6] <- 0
+
+[ ] x[x != 6] <- 0
+
+[ ] x[x %in% 1:5] <- 0
+
+[ ] x[x <= 5] <- 0
+
+[ ] x[x < 6] <- 0
+
+[ ] x[x == 6] <- 0
+
+[ ] x[x == 0] <- 6
+
+[ ] x[x < 6] == 0
+
+[ ] x[x > 0] <- 6
+
+[ ] x[x == 0] < 6
+
+## 11. Use the Week 1 Quiz Data Set to answer questions 11-20.
+
+In the dataset provided for this Quiz, what are the column names of the dataset?
+
+```{r 7, echo=TRUE, eval=TRUE}
+dt <- read.csv("rprogramming/quizzes/hw1_data.csv")
+names(dt)
+```
+
+[ x ] Ozone, Solar.R, Wind, Temp, Month, Day
+
+[ ] Month, Day, Temp, Wind
+
+[ ] Ozone, Solar.R, Wind
+
+[ ] 1, 2, 3, 4, 5, 6
+
+## 12. Extract the first 2 rows of the data frame and print them to the console. What does the output look like?
+
+```{r 8, echo=TRUE, eval=TRUE}
+head(dt, 2)
+```
+
+## 13. How manu observations (i.e. rows) are in this data frame?
+
+```{r 9, echo=TRUE, eval=TRUE}
+nrow(dt)
+```
+
+[ ] 160
+
+[ ] 45
+
+[ x ] 153
+
+[ ] 129
+
+## 14. Extract the last 2 rows of the data frame and print them to the console. What does the output look like?
+
+```{r 10, echo=TRUE, eval=TRUE}
+tail(dt, 2)
+```
+
+## 15. What is the value of Ozone in the 47th row?
+
+```{r 11, echo=TRUE, eval=TRUE}
+dt$Ozone[47]
+```
+
+[ ] 18
+
+[ x ] 21
+
+[ ] 63
+
+[ ] 34
+
+## 16. How manu missing values are in the Ozone column of this data frame?
+
+```{r 12, echo=TRUE, eval=TRUE}
+sum(is.na(dt$Ozone))
+```
+
+[ ] 9
+
+[ ] 43
+
+[ ] 78
+
+[ x ] 37
+
+## 17. What is the mean of the Ozone column in this dataset? Exclude missing values (coded as NA) from this calculation. 
+
+```{r 13, echo=TRUE, eval=TRUE}
+mean(dt$Ozone, na.rm = TRUE)
+```
+
+[ ] 18.0
+
+[ ] 31.5
+
+[ ] 53.2
+
+[ x ] 42.1
+
+## 18. Extract the subset of rows of the data frame where Ozone values are above 31 and Temp values are above 90. 
+
+```{r 14, echo=TRUE, eval=TRUE}
+dt2 <- dt[(dt$Ozone > 31 & dt$Temp>90), ]
+mean(dt2$Solar.R, na.rm = TRUE)
+```
+
+[ ] 185.9
+
+[ ] 205.0
+
+[ ] 334.0
+
+[ x ] 212.8
+
+## 19. What is the mean of "Temp" when "Month" is equal to 6?
+
+```{r 15, echo=TRUE, eval=TRUE}
+dt.temp <- dt$Temp[which(dt$Month == 6)]
+mean(dt.temp, na.rm = TRUE)
+```
+
+[ ] 75.3
+
+[ ] 90.2
+
+[ ] 85.6
+
+[ x ] 79.1
+
+## 20. What was the maximum ozone value in the month of May (i.e. Month is equal to 5)?
+
+```{r 16, echo=TRUE, eval=TRUE}
+dt.oz <- dt$Ozone[which(dt$Month == 5)]
+max(dt.oz, na.rm = TRUE)
+```
+
+[ x ] 115
+
+[ ] 18
+
+[ ] 97
+
+[ ] 100
