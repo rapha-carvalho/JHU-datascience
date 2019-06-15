@@ -1,7 +1,7 @@
 ---
 title: "Week 1 - Quiz 1"
 author: "Raphael Carvalho"
-date: "09/05/2019"
+date: "15/06/2019"
 output: pdf_document
 ---
 
@@ -251,7 +251,7 @@ ifelse(sum(x[c(4, 5, 6)]) == 0, TRUE, FALSE)
 In the dataset provided for this Quiz, what are the column names of the dataset?
 
 ```{r 7, echo=TRUE, eval=TRUE}
-dt <- read.csv("rprogramming/quizzes/hw1_data.csv")
+dt <- read.csv("hw1_data.csv")
 names(dt)
 ```
 

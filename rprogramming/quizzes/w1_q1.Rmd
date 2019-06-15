@@ -1,0 +1,177 @@
+---
+title: "Week 2 - Quiz 1"
+author: "Raphael Carvalho"
+date: "15/06/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## 1. Suppose I define the following function in R: 
+
+```{r q1_1, echo=TRUE, eval=TRUE}
+cube <- function(x, n) {x^3}
+```
+What is the result of running
+```{r q2_2, echo=TRUE, eval=TRUE}
+cube(3)
+
+```
+in R after defining this function?
+
+[ x ] The number 27 is returned
+
+[ ] A warning is given with no value returned.
+
+[ ] An error is returned because 'n' is not specified in the call to 'cube'
+
+[ ] The users is prompted to specify the value of 'n'.
+
+## 2. The following code will produce a warning in R. 
+```{r q2, echo=TRUE, eval=TRUE}
+x <- 1:10
+if(x > 5) {
+  x <- 0
+}
+```
+Why?
+
+[ ] There are no elements in 'x' that are greater than 5
+
+[ x ] 'x' is a vector of length 10 and 'if' can only test a single logical statement.
+
+[ ] You cannot set 'x' to be 0 because 'x' is a vector and 0 is a scalar.
+
+[ ] The expression uses curly braces.
+
+[ ] The syntax of this R expression is incorrect.
+
+
+## 3. Consider the following function
+```{r q3_1, echo=TRUE,eval=TRUE}
+f <- function(x) {
+        g <- function(y) {
+                y + z
+        }
+        z <- 4
+        x + g(x)
+}
+```
+If I then run in R
+```{r q3_2, echo=TRUE, eval=TRUE}
+z <- 10
+f(3)
+```
+What value is returned?
+
+
+
+[ ] 4
+
+[ ] 7
+
+[ ] 16
+
+[ x ] 10
+
+## 4. Consider the following expression. What is the value of 'y' after evaluating this expression?
+
+```{r question_4, echo=TRUE, eval=TRUE}
+x <- 5
+y <- if(x < 3) {
+        NA
+} else {
+        10
+}
+```
+
+[ x ] 10
+
+[ ] NA
+
+[ ] 5
+
+[ ] 3
+
+## 5. Consider the following R function. Which symbol in the above function is a free variable? 
+
+```{r question_5_function, echo=TRUE, eval=TRUE}
+h <- function(x, y = NULL, d = 3L) {
+        z <- cbind(x, d)
+        if(!is.null(y))
+                z <- z + y
+        else
+                z <- z + f
+        g <- x + y / z
+        if(d == 3L)
+                return(g)
+        g <- g + 10
+        g
+}
+```
+
+
+[ x ] f
+
+[ ] z
+
+[ ] d
+
+[ ] L
+
+[ ] g
+
+## 6. What is an enviroment in R?
+
+[ ] a list whose elements are all functions
+
+[ x ] a collection of symbol/value pairs
+
+[ ] an R package that only contains data
+
+[ ] a special type of function
+
+## 7. The R language use what type of scoping rule for resolving free variables?
+
+[ ] global scoping
+
+[ ] compilation scoping
+
+[ ] dynamic scoping
+
+[ x ] lexical scoping
+
+## 8. How are free variables in R functions resolved? 
+
+[ ] The values of free variables are searched for in the environment in which the function was called
+
+[ x ] The values of free variables are searched for in the environment in which the function was defined
+
+[ ] The values of free variables are searched for in the working directory
+
+[ ] The values of free variables are searched for in the global environment
+
+## 9. What is one of the consequences of the scoping rules used in R?
+
+[ x ] All objects must be stored in memory
+
+[ ] All objects can be stored on the disk
+
+[ ] Functions cannot be nested
+
+[ ] R objects cannot be larger than 100 MB
+
+
+## 10. In R, what is the parent frame?
+
+[ ] It is the environment in which a function was defined
+
+[ ] It is always the global environment
+
+[ x ] It is the environment in which a function was called
+
+[ ] It is the package search list
+
