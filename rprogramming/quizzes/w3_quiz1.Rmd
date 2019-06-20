@@ -1,0 +1,100 @@
+---
+title: "Week 3 - Quiz 1"
+author: "Raphael Carvalho"
+date: "20/06/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## 1. Take a look at the 'iris' dataset that comes with R. The data can be loaded with the code:
+
+```{r q1_1, echo=TRUE, eval=TRUE}
+library(datasets)
+data(iris)
+```
+
+There will be an object called 'iris' in your workspace. In this dataset, what is the mean of 'Sepal.Length' for the species virginica? Please round your answer to the nearest whole number.
+
+```{r q1_2, echo=TRUE, eval=TRUE}
+mean(iris$Sepal.Length, na.rm = TRUE)
+```
+
+
+## 2. Continuing with the 'iris' dataset from the previous Question, what R code returns a vector of the means of the variables 'Sepal.Length', 'Sepal.Width', 'Petal.Length', and 'Petal.Width'?
+
+```{r q2_1, echo=TRUE, eval=TRUE}
+apply(iris[,1:4], 2, mean)
+```
+
+
+[ ] colMeans(iris)
+
+[ ] apply(iris, 2, mean)
+
+[ ] rowMeans(iris[, 1:4])
+
+[ ] apply(iris[, 1:4], 1, mean)
+
+[ x ] apply(iris[, 1:4], 2, mean)
+
+[ ] apply(iris, 1, mean)
+
+
+## 3. Load the 'mtcars' dataset in R with the following code 
+
+```{r q3_1, echo=TRUE, eval=TRUE}
+data(mtcars)
+```
+
+How can one calculate the average miles per gallon (mpg) by number of cylinders in the car (cyl)? Select all that apply.
+
+```{r q3_2, echo=TRUE, eval=TRUE}
+sapply(split(mtcars$mpg, mtcars$cyl), mean)
+tapply(mtcars$mpg, mtcars$cyl, mean)
+with(mtcars, tapply(mpg, cyl, mean))
+```
+
+
+[ ] tapply(mtcars$cyl, mtcars$mpg, mean)
+
+[ ] sapply(mtcars, cyl, mean)
+
+[ ] mean(mtcars$mpg, mtcars$cyl)
+
+[ ] split(mtcars, mtcars$cyl)
+
+[ ] apply(mtcars, 2, mean)
+
+[ x ] sapply(split(mtcars$mpg, mtcars$cyl), mean)
+
+[ ] lapply(mtcars, mean)
+
+[ x ] tapply(mtcars$mpg, mtcars$cyl, mean)
+
+[ x ] with(mtcars, tapply(mpg, cyl, mean))
+
+## 4. Continuing with the 'mtcars' dataset from the previous question, what is the absolute difference between the average horsepower of 4-cylinder cars and the average horsepower of 8-cylinder cars?
+
+```{r q4_1, echo=TRUE, eval=TRUE}
+ avg_mpg_per_cylinder <- tapply(mtcars$mpg, mtcars$cyl, mean)
+ avg_mpg_per_cylinder[1] - avg_mpg_per_cylinder[3] 
+```
+
+## 5. If you run
+```{r q5_1, echo=TRUE, eval=FALSE}
+'debug(ls)'
+```
+
+what happens when you next call the 'ls' function?
+
+[ ] You will be prompted to specify at which line of the function you would like to suspend execution and enter the browser.
+
+[ ] The 'ls' function will execute as usual.
+
+[ ] The 'ls' function will return an error.
+
+[ x ] Execution of 'ls' will suspend at the beginning of the function and you will be in the browser.
