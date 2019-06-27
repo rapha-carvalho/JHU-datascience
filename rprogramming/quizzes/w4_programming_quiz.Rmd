@@ -1,0 +1,225 @@
+---
+title: 'Programming Assignment 3: Quiz'
+author: "Raphael Carvalho"
+date: "27/06/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+root <- "/Users/raphaelcarvalho/Documents/Cursos/JHU-datascience"
+```
+
+
+## 1. What result is returned by the following code?
+
+
+```{r 1, echo=TRUE, eval=TRUE}
+source(paste0(root, "/rprogramming/programming_assignments/best.R"))
+best("SC", "heart attack")
+```
+
+
+[ ] LAKE CITY COMMUNITY HOSPITAL
+
+[ ] MARY BLACK MEMORIAL HOSPITAL
+
+[ ] CAROLINAS HOSPITAL SYSTEM
+
+[ x ] MUSC MEDICAL CENTER
+
+[ ] GRAND STRAND REG MED CENTER
+
+[ ] MCLEOD MEDICAL CENTER - DARLINGTON
+
+
+## 2. What result is returned by the following code?
+
+
+```{r 2, echo=TRUE, eval=TRUE}
+source(paste0(root, "/rprogramming/programming_assignments/best.R"))
+best("NY", "pneumonia")
+```
+
+
+[ ] BROOKS MEMORIAL HOSPITAL
+
+[ ] KINGSBROOK JEWISH MEDICAL CENTER
+
+[ x ] MAIMONIDES MEDICAL CENTER
+
+[ ] HOSPITAL FOR SPECIAL SURGERY
+
+[ ] CROUSE HOSPITAL
+
+[ ] NORTHERN DUTCHESS HOSPITAL
+
+## 3. What result is returned by the following code?
+
+
+```{r 3, echo=TRUE, eval=TRUE}
+source(paste0(root, "/rprogramming/programming_assignments/best.R"))
+best("AK", "pneumonia")
+```
+
+[ ] MT EDGECUMBE HOSPITAL
+
+[ ] CORDOVA COMMUNITY MEDICAL CENTER
+
+[ ] ALASKA NATIVE MEDICAL CENTER
+
+[ x ] YUKON KUSKOKWIM DELTA REG HOSPITAL
+
+[ ] CENTRAL PENINSULA GENERAL HOSPITAL
+
+[ ] PROVIDENCE ALASKA MEDICAL CENTER
+
+
+## 4. What result is returned by the following code?
+
+
+```{r 4, echo=TRUE, eval=TRUE}
+source(paste0(root, "/rprogramming/programming_assignments/rankhospital.R"))
+rankhospital("NC", "heart attack", "worst")
+```
+
+[ ] CAROLINAS MEDICAL CENTER-NORTHEAST
+
+[ x ] WAYNE MEMORIAL HOSPITAL
+
+[ ] THOMASVILLE MEDICAL CENTER
+
+[ ] CATAWBA VALLEY MEDICAL CENTER
+
+[ ] SPRUCE PINE COMMUNITY HOSPITAL
+
+[ ] WAKEMED, CARY HOSPITAL
+
+## 5. What result is returned by the following code?
+
+
+```{r 5, echo=TRUE, eval=TRUE}
+source(paste0(root, "/rprogramming/programming_assignments/rankhospital.R"))
+rankhospital("WA", "heart attack", 7)
+```
+
+[ ] JEFFERSON HEALTHCARE HOSPITAL
+
+[ x ] YAKIMA VALLEY MEMORIAL HOSPITAL
+
+[ ] TACOMA GENERAL ALLENMORE HOSPITAL
+
+[ ] KENNEWICK GENERAL HOSPITAL
+
+[ ] KADLEC REGIONAL MEDICAL CENTER
+
+[ ] ST ANTHONY HOSPITAL
+
+
+## 6. What result is returned by the following code?
+
+
+```{r 6, echo=TRUE, eval=TRUE}
+source(paste0(root, "/rprogramming/programming_assignments/rankhospital.R"))
+rankhospital("TX", "pneumonia", 10)
+```
+
+[ ] UNIVERSITY OF TEXAS HEALTH SCIENCE CENTER AT TYLER
+
+[ ] SCENIC MOUNTAIN MEDICAL CENTER
+
+[ ] PROVIDENCE MEMORIAL HOSPITAL
+
+[ x ] SETON SMITHVILLE REGIONAL HOSPITAL
+
+[ ] MEMORIAL HERMANN NORTHEAST
+
+[ ] WEST HOUSTON MEDICAL CENTER
+
+
+## 7. What result is returned by the following code?
+
+
+```{r 7, echo=TRUE, eval=TRUE}
+source(paste0(root, "/rprogramming/programming_assignments/rankhospital.R"))
+rankhospital("NY", "heart attack", 7)
+```
+
+[ ] FOREST HILLS HOSPITAL
+
+[ ] FLUSHING HOSPITAL MEDICAL CENTER
+
+[ ] ADIRONDACK MEDICAL CENTER
+
+[ ] NASSAU UNIVERSITY MEDICAL CENTER
+
+[ x ] BELLEVUE HOSPITAL CENTER
+
+[ ] UNIVERSITY HOSPITAL S U N Y HEALTH SCIENCE CENTER
+
+
+
+## 8. What result is returned by the following code?
+
+
+```{r 8, echo=TRUE, eval=TRUE, warning=FALSE}
+source(paste0(root, "/rprogramming/programming_assignments/rankall.R"))
+r <- rankall("heart attack", 4)
+as.character(subset(r, state == "HI")$hospital)
+```
+
+[ ] CLARK REGIONAL MEDICAL CENTER
+
+[ x ] CASTLE MEDICAL CENTER
+
+[ ] SANFORD USD MEDICAL CENTER
+
+[ ] NORTH COUNTRY HOSPITAL AND HEALTH CENTER
+
+[ ] ST FRANCIS MEDICAL CENTER
+
+[ ] PARKLAND HEALTH AND HOSPITAL SYSTEM
+
+
+## 9. What result is returned by the following code?
+
+
+```{r 9, echo=TRUE, eval=TRUE, warning=FALSE}
+source(paste0(root, "/rprogramming/programming_assignments/rankall.R"))
+r <- rankall("pneumonia", "worst")
+as.character(subset(r, state == "NJ")$hospital)
+```
+
+[ ] TERREBONNE GENERAL MEDICAL CENTER
+
+[ ] LAURENS COUNTY HEALTHCARE SYSTEM
+
+[ ] LAKES REGION GENERAL HOSPITAL
+
+[ x ] BERGEN REGIONAL MEDICAL CENTER
+
+[ ] BAY AREA HOSPITAL
+
+[ ] POTTSTOWN MEMORIAL MEDICAL CENTER
+
+
+## 10. What result is returned by the following code?
+
+
+```{r 10, echo=TRUE, eval=TRUE, warning=FALSE}
+source(paste0(root, "/rprogramming/programming_assignments/rankall.R"))
+r <- rankall("heart failure", 10)
+as.character(subset(r, state == "NV")$hospital)
+```
+
+[ ] YORK GENERAL HOSPITAL
+
+[ x ] RENOWN SOUTH MEADOWS MEDICAL CENTER
+
+[ ] NA
+
+[ ] CARONDELET ST JOSEPHS HOSPITAL
+
+[ ] CARY MEDICAL CENTER
+
+[ ] HAWAII MEDICAL CENTER EAST
