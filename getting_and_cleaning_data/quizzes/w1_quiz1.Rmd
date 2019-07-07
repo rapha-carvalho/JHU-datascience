@@ -1,0 +1,116 @@
+---
+title: "Week 1 - Quiz 1"
+author: "Raphael Carvalho"
+date: "07/07/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(xlsx)
+library(rJava)
+library(XML)
+library(RCurl)
+```
+
+
+## 1.The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file() from here: https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv and load the data into R. The code book, describing the variable names is here: https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf How many properties are worth $1,000,000 or more?
+
+
+```{r q1, echo=TRUE, eval=TRUE}
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
+download.file(fileURL, destfile = "./quiz1_q1.csv", method="curl")
+
+dt <- read.csv("quiz1_q1.csv")
+
+dt %>% filter(VAL == 24) %>% summarize(n())
+```
+
+[ ] 47
+
+[ x ] 53
+
+[ ] 164
+
+[ ] 31
+
+## 2. Use the data you loaded from Question 1. Consider the variables FES in the code book. Which of the "tidy data" principles does this variable violate?
+
+
+[ x ] Tidy data has one variable per column.
+
+[ ] Each tidy data table contains information about only one type of observation.
+
+[ ] Each variable in a tidy data set has been transformed to be interpretable.
+
+[ ] Tidy data has one observation per row.
+
+
+## 3. Download the Excel spreadsheet on Natural Gas Aquisition Program here: https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx Read rows 18-23 and columns 7-15 into R and assign the result to a variable called:
+
+```{r q3, echo=TRUE, eval=TRUE}
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FDATA.gov_NGAP.xlsx"
+download.file(fileURL, destfile = "./quiz1_q3.xlsx", mode = "wb")
+dat <- xlsx::read.xlsx("quiz1_q3.xlsx", sheetIndex = 1, rowIndex = 18:23, colIndex = 7:15)
+sum(dat$Zip*dat$Ext,na.rm=T)
+```
+
+[ ] 33544718
+
+[ x ] 36534720
+
+[ ] 154339
+
+[ ] NA
+
+## 4. Read the XML data on Baltimore restaurants from here: https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml How many restaurants have zipcode 21231?
+
+```{r q4, echo=TRUE, eval=TRUE}
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"
+doc <- XML::xmlTreeParse(sub("s", "", fileURL), useInternal = TRUE)
+rootNode <- XML::xmlRoot(doc)
+zipcodes <- XML::xpathSApply(rootNode, "//zipcode", XML::xmlValue)
+zipcodes <- data.table::data.table(zipcode = zipcodes)
+summarize(filter(zipcodes, zipcode == "21231"), n())
+
+```
+
+[ x ] 127
+
+[ ] 100
+
+[ ] 17
+
+[ ] 181
+
+
+## 5. The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of Idaho using download.file from here: https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv using the fread() command load the data into an R object "DT". The following are ways to calculate the average of the value pwgtp15 broken down by sex. Using the data.table package, which will theliver the fastest user time?
+
+```{r q5, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
+DT <- data.table::fread("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv")
+
+system.time(sapply(split(DT$pwgtp15,DT$SEX),mean))
+system.time(DT[,mean(pwgtp15),by=SEX])
+
+system.time(rowMeans(DT)[DT$SEX==1])
+system.time(rowMeans(DT)[DT$SEX==2])
+
+system.time(mean(DT$pwgtp15,by=DT$SEX))
+system.time(tapply(DT$pwgtp15,DT$SEX,mean))
+
+system.time(mean(DT[DT$SEX==1,]$pwgtp15))
+system.time(mean(DT[DT$SEX==2,]$pwgtp15))
+```
+
+[ ] sapply(split(DT$pwgtp15,DT$SEX),mean)
+
+[ x ] DT[,mean(pwgtp15),by=SEX]
+
+[ ] rowMeans(DT)[DT$SEX==1]; rowMeans(DT)[DT$SEX==2]
+
+[ ] mean(DT$pwgtp15,by=DT$SEX)
+
+[ ] tapply(DT$pwgtp15,DT$SEX,mean)
+
+[ ] mean(DT[DT$SEX==1,]$pwgtp15); mean(DT[DT$SEX==2,]$pwgtp15)
