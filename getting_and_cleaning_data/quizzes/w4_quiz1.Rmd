@@ -1,0 +1,123 @@
+---
+title: "Week 4 - Quiz 1"
+author: "Raphael Carvalho"
+date: "02/08/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(data.table)
+library(lubridate)
+```
+
+
+## 1.The American Community Survey distributes downloadable data about United States communities. Download the 2006 microdata survey about housing for the state of idaho using download.file from here: "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv" and load the data into R. The code book, describing the variable names is here: "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FPUMSDataDict06.pdf". Apply strsplit() to split all the names of the data frame on the characters "wgtp". What is the value of the 123 element of the resulting list?
+
+```{r q1, echo=TRUE, eval=TRUE, error=TRUE, warning=FALSE}
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
+download.file(fileURL, "./w4_q1.csv")
+
+q1 <- read.csv("./w4_q1.csv", sep = ",")
+strsplit(colnames(q1), "wgtp")[123]
+```
+
+[ x ] "" "15"
+
+[ ] "wgtp" "15"
+
+[ ] "15"
+
+[ ] "w" "15"
+  
+## 2. Load the Gross Domestic Product data for the 190 ranked countries in this data set: "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv". Remove the commas from the GDP numbers in millions of dollars and average them. What is the average? Original data sources: "http://data.worldbank.org/data-catalog/GDP-ranking-table". 
+
+```{r q2, echo=TRUE, eval=TRUE, error=TRUE, warning=FALSE}
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv"
+download.file(fileURL, "./w4_q2.csv")
+
+q2 <- read.csv("./w4_q2.csv", nrow = 190, skip = 4)[, c(1, 2, 4, 5)]
+colnames(q2) <- c("countryCode", "Rank", "countryNames", "Total")
+q2$Total <- as.integer(gsub(",", "", q2$Total))
+mean(q2$Total, na.rm = TRUE)
+```
+
+[ ] 381668.9
+
+[ x ] 377652.4
+
+[ ] 379596.5
+
+[ ] 387854.4
+
+## 3. In the data set from Question 2 what is a regular expression that would allow you to count the number of countries whose name begins with "United"? Addume that the variable with the country names in it is named countryNames. How many countries begin with United?
+
+
+In the data set from Question 2 what is a regular expression that would allow you to count the number of countries whose name begins with "United"? Assume that the variable with the country names in it is named countryNames. How many countries begin with United?
+
+```{r q3, echo=TRUE, eval=TRUE, error=TRUE, warning=FALSE}
+length(as.character(q2$countryNames[grep("United$", q2$countryNames)])) == 3
+length(as.character(q2$countryNames[grep("^United", q2$countryNames)])) == 3
+length(as.character(q2$countryNames[grep("^United", q2$countryNames)])) == 4
+length(as.character(q2$countryNames[grep("*United", q2$countryNames)])) == 2
+
+```
+
+[ ] grep("United$",countryNames), 3
+
+[ ] grep("^United",countryNames), 4
+
+[ x ] grep("^United",countryNames), 3
+
+[ ] grep("*United",countryNames), 2
+
+## 4. Load the Gross Domestic Product data for the 190 ranked countries in this data set: "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv". Load the educational data from this data set: "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv". Match the data based on the country shortcode. Of the countries for which the end of the fiscal year is available, how many end in June? Original data sources: "http://data.worldbank.org/data-catalog/GDP-ranking-table"; "http://data.worldbank.org/data-catalog/ed-stats"
+
+```{r q4, echo=TRUE, eval=TRUE, error=TRUE, warning=FALSE}
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv"
+download.file(fileURL, "./w4_q4_1.csv")
+fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv"
+download.file(fileURL, "./w4_q4_2.csv") 
+
+q4_1 <- fread("./w4_q4_1.csv", skip = 5, nrows = 190, select = c(1, 2, 4, 5), col.names = c("CountryCode", "Rank", "Economy", "Total"))
+q4_2 <- fread("./w4_q4_2.csv")
+
+q4_merge <- merge(q4_1, q4_2, by = "CountryCode")
+q4_merge
+
+june <- grep("Fiscal year end: June", q4_merge$`Special Notes`)
+NROW(june)
+```
+
+[ ] 15
+
+[ x ] 13
+
+[ ] 16
+
+[ ] 7
+
+## 5.You can use the quantmod (http://www.quantmod.com/) package to get historical stock prices for publicly traded companies on the NASDAQ and NYSE. Use the following code to download data on Amazon's stock price and get the times the data was sampled. How many values were collected in 2012? 
+
+```{r q5_intro, echo=TRUE, eval=TRUE, error=TRUE, warning=FALSE}
+library(quantmod)
+amzn = getSymbols("AMZN",auto.assign=FALSE)
+sampleTimes = index(amzn)
+```
+
+## How many values were collected on Mondays in 2012?
+
+```{r q5, echo=TRUE, eval=TRUE, error=TRUE, warning=FALSE}
+amzn2012 <- sampleTimes[grep("^2012", sampleTimes)]
+NROW(amzn2012)
+
+NROW(amzn2012[weekdays(amzn2012) == "Segunda Feira"])
+```
+[ ] 250, 51
+
+[ ] 252, 50
+
+[ x ] 250, 47
+
+[ ] 251, 47
