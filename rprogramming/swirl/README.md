@@ -1,22 +1,17 @@
-# Swirl
-
-This folder stores all the exercises and projects done throughout the course.
-
-
 ## Swirl lessons
 
-- [Basic Building Blocks](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_1.pdf)
-- [Workspace and Files](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_2.pdf)
-- [Sequence of Numbers](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_3.pdf)
-- [Vectors](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_4.pdf)
-- [Missing Values](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_5.pdf)
-- [Subsetting Vectors](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_6.pdf)
-- [Matrices and Dataframes](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_7.pdf)
-- [Logic](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_8.pdf)
-- [Functions](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_9.pdf)
-- [lapply and sapply](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_10.pdf)
-- [vapply and tapply](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_11.pdf)
-- [Logic](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_12.pdf)
-- [Looking at Data](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_13.pdf)
-- [Dates and Times](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_14.pdf)
-- [Base graphics](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_15.pdf)
+- [Lesson 1: Basic Building Blocks](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_1.pdf)
+- [Lesson 2: Workspace and Files](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_2.pdf)
+- [Lesson 3: Sequence of Numbers](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_3.pdf)
+- [Lesson 4: Vectors](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_4.pdf)
+- [Lesson 5: Missing Values](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_5.pdf)
+- [Lesson 6: Subsetting Vectors](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_6.pdf)
+- [Lesson 7: Matrices and Dataframes](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_7.pdf)
+- [Lesson 8: Logic](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_8.pdf)
+- [Lesson 9: Functions](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_9.pdf)
+- [Lesson 10: lapply and sapply](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_10.pdf)
+- [Lesson 11: vapply and tapply](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_11.pdf)
+- [Lesson 12: Logic](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_12.pdf)
+- [Lesson 13: Looking at Data](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_13.pdf)
+- [Lesson 14: Dates and Times](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_14.pdf)
+- [Lesson 15: Base graphics](https://github.com/rapha-carvalho/JHU-datascience/tree/master/rprogramming/swirl/swirl_lesson_15.pdf)

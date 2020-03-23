@@ -85,13 +85,6 @@ paste(nrow(dt), " matches, 13th country is ", dt$Economy[13])
 ## 4. What is the average gdp RANKING FOR THE "High income: OECD" and "High income: nonOECD" group?
 
 
-
-
-1 ponto
-
-4.Pergunta 4
-What is the average GDP ranking for the "High income: OECD" and "High income: nonOECD" group?
-
 ```{r q4, echo=TRUE, eval=TRUE, error=TRUE, warning=FALSE}
 dt %>% group_by(`Income Group`) %>% filter("High income: OECD" %in% `Income Group` | "High income: nonOECD" %in% `Income Group`) %>% summarize(avg = mean(Rank, na.rm = TRUE)) %>% arrange(desc(`Income Group`))
 ```
