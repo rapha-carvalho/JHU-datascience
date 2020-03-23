@@ -13,32 +13,32 @@ knitr::opts_chunk$set(echo = TRUE)
 * In its simplest form, R can be used as an interactive calculator. Type 5 +
 7 and press Enter.
 
-```{r 1, echo=TRUE, eval=TRUE}
+```{r 1, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 5 + 7
 ```
 
 * To assign the result of 5 + 7 to a new variable called x, you type x <- 5 + 7. This can be read as 'x gets 5 plus 7'. Give it a try now.
 
-```{r 2, echo=TRUE, eval=TRUE}
+```{r 2, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 x <- 5 + 7
 ```
 
 * To view the contents of the variable x, just type x and press Enter. Try it
 now.
 
-```{r 3, echo=TRUE, eval=TRUE}
+```{r 3, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 x
 ```
 
 * Now, store the result of x - 3 in a new variable called y.
 
-```{r 4, echo=TRUE, eval=TRUE}
+```{r 4, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 y <- x - 3
 ```
 
 * What is the value of y? Type y to find out.
 
-```{r 5, echo=TRUE, eval=TRUE}
+```{r 5, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 y
 ```
 
@@ -47,7 +47,7 @@ for 'concatenate' or 'combine'. To create a vector containing the numbers
 1.1, 9, and 3.14, type c(1.1, 9, 3.14). Try it now and store the result in
 a variable called z
 
-```{r 6, echo=TRUE, eval=TRUE}
+```{r 6, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 z <- c(1.1, 9, 3.14)
 ```
 
@@ -56,13 +56,13 @@ built-in help files via the `?` command. For example, if you want more
 information on the c() function, type ?c without the parentheses that
 normally follow a function name. Give it a try.
 
-```{r 7, echo=TRUE, eval=TRUE}
+```{r 7, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 ?c
 ```
 
 * Type z to view its contents. Notice that there are no commas separating the values in the output.
 
-```{r 8, echo=TRUE, eval=TRUE}
+```{r 8, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 z
 ```
 
@@ -70,21 +70,21 @@ z
 contains z, 555, then z again in that order. Don't assign this vector to a
 new variable, so that we can just see the result immediately.
 
-```{r 9, echo=TRUE, eval=TRUE}
+```{r 9, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 c(z, 555, z)
 ```
 
 * Numeric vectors can be used in arithmetic expressions. Type the following
 to see what happens: z * 2 + 100.
 
-```{r 10, echo=TRUE, eval=TRUE}
+```{r 10, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 z * 2 + 100
 ```
 
 * Take the square root of z - 1 and assign it to a new variable called
 my_sqrt.
 
-```{r 11, echo=TRUE, eval=TRUE}
+```{r 11, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 my_sqrt <- sqrt(z-1)
 ```
 
@@ -95,14 +95,14 @@ contains?
 
 * Print the contents of my_sqrt.
 
-```{r 12, echo=TRUE, eval=TRUE}
+```{r 12, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 my_sqrt
 ```
 
 * Now, create a new variable called my_div that gets the value of z divided
 by my_sqrt.
 
-```{r 13, echo=TRUE, eval=TRUE}
+```{r 13, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 my_div <- z/my_sqrt
 ```
 
@@ -112,7 +112,7 @@ my_div <- z/my_sqrt
 
 * Go ahead and print the contents of my_div.
 
-```{r 14, echo=TRUE, eval=TRUE}
+```{r 14, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 my_div
 ```
 
@@ -120,13 +120,13 @@ my_div
 c(1, 2, 3, 4) and c(0, 10). Don't worry about saving the result in a new
 variable.
 
-```{r 15, echo=TRUE, eval=TRUE}
+```{r 15, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 c(1, 2, 3, 4) + c(0, 10)
 ```
 
 * Try c(1, 2, 3, 4) + c(0, 10, 100) for an example.
 
-```{r 16, echo=TRUE, eval=TRUE}
+```{r 16, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
  c(1, 2, 3, 4) + c(0, 10, 100)
 ```
 
@@ -135,7 +135,7 @@ commands. Try hitting the up arrow on your keyboard until you get to this
 command (z * 2 + 100), then change 100 to 1000 and hit Enter. If the up
 arrow doesn't work for you, just type the corrected command.
 
-```{r 17, echo=TRUE, eval=TRUE}
+```{r 17, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 z * 2 + 1000
 ```
 
@@ -146,6 +146,6 @@ auto-completion and can be quite handy when you have many variables in your
 workspace. Give it a try. (If auto-completion doesn't work for you, just
 type my_div and press Enter.)
 
-```{r 18, echo=TRUE, eval=TRUE}
+```{r 18, echo=TRUE, eval=TRUE, warning=FALSE, error=TRUE}
 my_div
 ```
